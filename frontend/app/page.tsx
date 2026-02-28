@@ -42,15 +42,16 @@ export default function LandingPage() {
                         <div>
                             <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-medium mb-6">
                                 <Zap className="w-4 h-4 mr-1" />
-                                Instant MT to MX Conversion
+                                MT to MX Online Conversion
                             </div>
                             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                                MT103 to MX Converter &
-                                <span className="text-blue-600"> ISO 20022 Validator</span>
+                                Free MT to MX Converter &
+                                <span className="text-blue-600"> Online SWIFT Tool</span>
                             </h1>
                             <p className="text-lg text-gray-600 mb-8">
-                                Convert SWIFT MT messages to ISO 20022 MX format instantly. 
-                                Professional pacs.008 generator with bank-grade validation.
+                                Convert SWIFT MT messages to ISO 20022 MX format online instantly. 
+                                Professional swift mt to mx converter with free MT103 to MX conversion. 
+                                No signup required for instant results.
                             </p>
                             <div className="flex flex-wrap gap-4 mb-8">
                                 <Link href="/auth/register">
@@ -61,14 +62,14 @@ export default function LandingPage() {
                                 </Link>
                                 <Link href="#try-it">
                                     <Button variant="outline" size="lg">
-                                        Try Without Signup
+                                        Try Online Now
                                     </Button>
                                 </Link>
                             </div>
                             <div className="flex flex-wrap gap-6 text-sm text-gray-500">
-                                <span className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-green-500" /> No credit card required</span>
-                                <span className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-green-500" /> 5 free conversions</span>
-                                <span className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-green-500" /> Bank-grade security</span>
+                                <span className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-green-500" /> Free MT103 to MX conversion</span>
+                                <span className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-green-500" /> 5 free credits</span>
+                                <span className="flex items-center"><CheckCircle className="w-4 h-4 mr-2 text-green-500" /> Instant online converter</span>
                             </div>
                         </div>
                         
@@ -121,17 +122,17 @@ export default function LandingPage() {
             <section id="try-it" className="container mx-auto px-4 pb-20">
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-8">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-2">Try It Now — Free</h2>
-                        <p className="text-gray-500">No signup required. Get 1 free conversion instantly.</p>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-2">Try MT to MX Converter Online — Free</h2>
+                        <p className="text-gray-500">No signup required. Experience the best swift mt to mx converter online with instant results.</p>
                     </div>
                     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
                         <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center space-x-2">
                                     <FileCode2 className="w-5 h-5 text-blue-600" />
-                                    <span className="font-medium text-gray-900">MT to MX Converter</span>
+                                    <span className="font-medium text-gray-900">MT to MX Online Converter</span>
                                 </div>
-                                <span className="text-sm text-gray-500">1 credit = 1 conversion</span>
+                                <span className="text-sm text-gray-500">Free swift mt to mx conversion</span>
                             </div>
                         </div>
                         <div className="p-6">
@@ -146,9 +147,9 @@ export default function LandingPage() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                            Supported Message Types
+                            MT to MX Online Conversion - All Formats
                         </h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">Convert between legacy MT formats and modern ISO 20022 MX standards</p>
+                        <p className="text-gray-600 max-w-2xl mx-auto">Professional swift mt to mx converter online supporting all major SWIFT message types to ISO 20022 standards</p>
                     </div>
                     <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                         <FormatCard
@@ -260,20 +261,28 @@ export default function LandingPage() {
                     </h2>
                     <div className="max-w-3xl mx-auto space-y-6">
                         <FAQItem
-                            question="What is MT103 to MX conversion?"
-                            answer="MT103 to MX conversion transforms SWIFT MT103 customer credit transfer messages into ISO 20022 pacs.008 format. This enables financial institutions to transition from legacy SWIFT FIN messaging to the modern ISO 20022 standard while maintaining backward compatibility."
+                            question="What is the best MT to MX online converter?"
+                            answer="The best MT to MX online converter offers instant conversion, supports multiple message types (MT103, MT202, MT940), provides bank-grade validation, and requires no signup. Our swift mt to mx converter online delivers professional results with ISO 20022 compliance."
                         />
                         <FAQItem
-                            question="How does the ISO 20022 validator work?"
-                            answer="Our ISO 20022 validator checks your MX messages against official XSD schemas from ISO. It validates structure, data types, and business rules to ensure your messages comply with SWIFT and ISO standards before transmission."
+                            question="How does MT to MX online conversion work?"
+                            answer="MT to MX online conversion transforms SWIFT FIN messages into ISO 20022 XML format. Our swift converter online parses the MT message structure, validates it against SWIFT standards, and generates the corresponding MX message with proper schema validation."
                         />
                         <FAQItem
-                            question="What is pacs.008 format?"
-                            answer="pacs.008 is an ISO 20022 message type for 'FI to FI Customer Credit Transfer'. It's the MX equivalent of MT103, used for single customer-to-customer payment instructions between financial institutions."
+                            question="Is there a free MT103 to MX converter online?"
+                            answer="Yes! Our MT103 to MX converter online offers 5 free credits for new users. Convert SWIFT MT103 messages to pacs.008 format instantly without signup. Experience professional swift mt to mx conversion at no cost."
                         />
                         <FAQItem
-                            question="Is my data secure during conversion?"
-                            answer="Yes. We use AES-256 encryption at rest, TLS 1.3 for data in transit, and do not store your messages after conversion. All processing happens in secure, isolated environments with bank-grade security measures."
+                            question="What message types does the swift mt to mx converter support?"
+                            answer="Our swift mt to mx converter online supports MT103 to pacs.008, MT202 to pacs.009, MT940 to camt.053, and other major SWIFT message types. All conversions include ISO 20022 validation and instant results."
+                        />
+                        <FAQItem
+                            question="Why choose our MT to MX converter online?"
+                            answer="Our MT to MX converter online provides instant results, bank-grade security, ISO 20022 compliance, and supports all major message types. No signup required for trial conversions. Professional swift converter for financial institutions."
+                        />
+                        <FAQItem
+                            question="Is the swift mt to mx converter secure?"
+                            answer="Yes. Our swift mt to mx converter online uses AES-256 encryption, TLS 1.3 protocols, and doesn't store your messages. All conversions happen in secure, isolated environments with enterprise-grade security measures."
                         />
                     </div>
                 </div>
@@ -288,34 +297,36 @@ export default function LandingPage() {
                                 <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
                                     <ArrowRightLeft className="w-5 h-5 text-white" />
                                 </div>
-                                <span className="text-lg font-semibold text-white">SWIFT Converter</span>
+                                <span className="text-lg font-semibold text-white">MT to MX Online</span>
                             </div>
-                            <p className="text-sm">Professional MT to MX conversion tool for financial institutions.</p>
+                            <p className="text-sm">Professional MT to MX online converter. Free swift mt to mx conversion tool for financial institutions.</p>
                         </div>
                         <div>
-                            <h4 className="text-white font-semibold mb-4">Product</h4>
+                            <h4 className="text-white font-semibold mb-4">Online Tools</h4>
                             <ul className="space-y-2 text-sm">
-                                <li><Link href="/" className="hover:text-white">MT to MX Converter</Link></li>
-                                <li><Link href="/" className="hover:text-white">ISO 20022 Validator</Link></li>
-                                <li><Link href="/auth/register" className="hover:text-white">Pricing</Link></li>
+                                <li><Link href="/" className="hover:text-white">MT to MX Converter Online</Link></li>
+                                <li><Link href="/" className="hover:text-white">Swift MT to MX Converter</Link></li>
+                                <li><Link href="/" className="hover:text-white">Free MT103 to MX</Link></li>
+                                <li><Link href="/auth/register" className="hover:text-white">Online Converter</Link></li>
                             </ul>
                         </div>
                         <div>
                             <h4 className="text-white font-semibold mb-4">Message Types</h4>
                             <ul className="space-y-2 text-sm">
-                                <li><Link href="/" className="hover:text-white">MT103 to pacs.008</Link></li>
-                                <li><Link href="/" className="hover:text-white">MT202 to pacs.009</Link></li>
-                                <li><Link href="/" className="hover:text-white">MT940 to camt.053</Link></li>
+                                <li><Link href="/" className="hover:text-white">MT103 to pacs.008 Online</Link></li>
+                                <li><Link href="/" className="hover:text-white">MT202 to pacs.009 Converter</Link></li>
+                                <li><Link href="/" className="hover:text-white">MT940 to camt.053 Online</Link></li>
+                                <li><Link href="/" className="hover:text-white">Swift Converter Online</Link></li>
                             </ul>
                         </div>
                         <div>
-                            <h4 className="text-white font-semibold mb-4">Feedback</h4>
-                            <p className="text-sm mb-3">Have suggestions? We&apos;d love to hear from you.</p>
+                            <h4 className="text-white font-semibold mb-4">Support</h4>
+                            <p className="text-sm mb-3">Need help with MT to MX online conversion? Contact our support team.</p>
                             <FeedbackForm />
                         </div>
                     </div>
                     <div className="border-t border-gray-800 pt-8 text-center text-sm">
-                        <p>© 2026 SWIFT Converter. Professional MT to MX online conversion, MT103 to MX, swift converter online for financial messaging. All rights reserved.</p>
+                        <p>© 2026 MT to MX Online Converter. Professional swift mt to mx converter, free MT103 to MX conversion online, SWIFT converter tool for financial messaging. All rights reserved.</p>
                     </div>
                 </div>
             </footer>
