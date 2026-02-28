@@ -3,7 +3,7 @@
 const SESSION_KEY = 'session_token';
 
 const api = axios.create({
-    baseURL: (process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8081'),
+    baseURL: (process.env.NEXT_PUBLIC_API_URL ?? 'https://swiftconverter-backend-production.up.railway.app'),
     headers: {
         'Content-Type': 'application/json',
     },

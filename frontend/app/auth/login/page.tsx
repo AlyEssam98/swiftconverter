@@ -71,7 +71,7 @@ export default function LoginPage() {
 
     const handleGoogleLogin = () => {
         setSocialLoading('google');
-        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8081';
+        const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'https://swiftconverter-backend-production.up.railway.app';
         // Use Spring Security's standard OAuth2 authorization endpoint
         const url = `${backendUrl}/oauth2/authorization/google`;
         window.location.href = url;
