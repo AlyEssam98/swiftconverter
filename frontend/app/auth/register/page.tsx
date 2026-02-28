@@ -17,7 +17,26 @@ export default function RegisterPage() {
     const [isLoading, setIsLoading] = useState(false);
     const { login } = useAuth();
     const [error, setError] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [registered, setRegistered] = useState(false);  // Track if email sent
+    const [registeredEmail, setRegisteredEmail] = useState('')  // Store registered email
     const router = useRouter();
+
+    const validateEmail = (emailValue: string): boolean => {
+        // RFC 5322 simplified email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(emailValue);
+    };
+
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setEmail(value);
+        setEmailError('');
+        
+        if (value && !validateEmail(value)) {
+            setEmailError('Please enter a valid email address');
+        }
+    };
 
     const getTokenFromResponse = (data: unknown): string | null => {
         if (typeof data === 'string' && data.trim()) return data.trim();
@@ -30,10 +49,16 @@ export default function RegisterPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
+        setEmailError('');
         setIsLoading(true);
         try {
             if (!email || !password) {
                 setError('Please enter both email and password');
+                setIsLoading(false);
+                return;
+            }
+            if (!validateEmail(email)) {
+                setEmailError('Please enter a valid email address');
                 setIsLoading(false);
                 return;
             }
@@ -44,14 +69,25 @@ export default function RegisterPage() {
             }
             const res = await api.post('/api/v1/auth/register', { email, password });
             const data = res?.data;
+            
+            // Check if we got a token (old flow) or a message (new email verification flow)
             const token = getTokenFromResponse(data);
-            if (!token) {
-                const msg = (data as { message?: string })?.message;
-                setError(msg || 'Registration succeeded but no session token was returned. Please sign in.');
+            const message = (data as { message?: string })?.message;
+            
+            if (message && message.includes('Check your email')) {
+                // Email verification flow - show "check email" page
+                setRegisteredEmail(email);
+                setRegistered(true);
                 return;
             }
+            
+            if (!token) {
+                setError(message || 'Registration succeeded but no session token was returned. Please sign in.');
+                return;
+            }
+            
+            // Traditional flow with immediate token
             login(token);
-            // Redirect after a small delay to allow state to update
             setTimeout(() => router.push('/dashboard'), 100);
         } catch (err: unknown) {
             const axiosError = err as any;
@@ -69,6 +105,56 @@ export default function RegisterPage() {
             setIsLoading(false);
         }
     };
+
+    // Show "Check your email" page after registration
+    if (registered) {
+        return (
+            <div className="min-h-screen bg-gray-50 flex items-center justify-center p-8">
+                <div className="max-w-md w-full space-y-6 text-center">
+                    <div className="flex justify-center">
+                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                            <CheckCircle className="w-8 h-8 text-green-600" />
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h1 className="text-2xl font-bold text-gray-900">Check your email</h1>
+                        <p className="text-gray-500 mt-2">
+                            We've sent a verification link to <strong>{registeredEmail}</strong>
+                        </p>
+                    </div>
+
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <p className="text-sm text-blue-700">
+                            📧 Click the link in the email to verify your account and get your 5 free credits.
+                        </p>
+                        <p className="text-xs text-blue-600 mt-3">
+                            The link will expire in 24 hours.
+                        </p>
+                    </div>
+
+                    <div className="space-y-3">
+                        <p className="text-sm text-gray-600">
+                            Didn't receive the email? Check your spam folder or{" "}
+                            <button 
+                                onClick={() => {
+                                    setRegistered(false);
+                                    setEmail(registeredEmail);
+                                }}
+                                className="text-blue-600 hover:underline font-semibold"
+                            >
+                                try signing up again
+                            </button>
+                        </p>
+                    </div>
+
+                    <Link href="/auth/login" className="inline-flex items-center space-x-2 text-blue-600 hover:underline mt-4">
+                        <span>Back to login</span>
+                    </Link>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-gray-50 flex">
@@ -131,10 +217,11 @@ export default function RegisterPage() {
                                 type="email"
                                 placeholder="name@example.com"
                                 value={email}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-                                className="bg-white border-gray-200"
+                                onChange={handleEmailChange}
+                                className={`bg-white border-gray-200 ${emailError ? 'border-red-500' : ''}`}
                                 required
                             />
+                            {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="password">Password</Label>
